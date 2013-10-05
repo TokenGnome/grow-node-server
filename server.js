@@ -20,7 +20,7 @@ app.use(function(req, res) {
 
 app.get('/assets/:bucket/:key', function(req, res) {
 
-  var params = {Bucket: bucket, Key: key};
+  var params = {Bucket: req.params.bucket, Key: req.params.key};
 
   S3.getSignedUrl('getObject', params, function(err, url) {
     
